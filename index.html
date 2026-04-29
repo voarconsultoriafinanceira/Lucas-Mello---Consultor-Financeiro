@@ -120,8 +120,8 @@ section{position:relative;z-index:1}
 #sobre{background:var(--ink)}
 .sobre-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(40px,6vw,96px);align-items:center}
 .sobre-img-wrap{position:relative}
-.sobre-img-wrap img{width:100%;border-radius:20px;display:block;filter:brightness(.86) contrast(1.08) saturate(.88);object-fit:cover;aspect-ratio:3/4}
-.sobre-tag{position:absolute;bottom:-14px;right:-14px;background:var(--teal);border-radius:14px;
+.sobre-img-wrap > img{width:100%;border-radius:20px;display:block;filter:brightness(.86) contrast(1.08) saturate(.88);object-fit:cover;aspect-ratio:3/4}
+.sobre-tag{position:relative;margin-top:16px;display:inline-block;background:var(--teal);border-radius:14px;
   padding:14px 18px;font-size:13px;font-weight:500;color:var(--white);line-height:1.4;
   box-shadow:0 12px 40px rgba(13,127,127,.38);max-width:200px}
 .sobre-tag strong{display:block;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:3px}
@@ -135,8 +135,30 @@ section{position:relative;z-index:1}
   border-radius:0 10px 10px 0;font-size:13px;color:var(--muted);line-height:1.55}
 .aviso strong{color:var(--teal-hi)}
 
-/* DORES */
-#dores{background:var(--ink2)}
+/* INSTAGRAM PREVIEW */
+.ig-preview-wrap{background:var(--ink2);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.ig-preview-header{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border2)}
+.ig-preview-dot{width:8px;height:8px;border-radius:50%;background:var(--teal-hi);flex-shrink:0}
+.ig-preview-handle{font-size:13px;font-weight:600;color:var(--white);flex:1}
+.ig-preview-link{font-size:12px;color:var(--teal-hi);text-decoration:none;font-weight:600;transition:color .2s}
+.ig-preview-link:hover{color:var(--white)}
+.ig-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:180px 180px;gap:2px}
+.ig-cell{overflow:hidden;position:relative}
+.ig-cell img{transition:transform .4s ease}
+.ig-cell:hover img{transform:scale(1.05)}
+.ig-cell-main{grid-row:1/-1}
+.ig-preview-cta{display:flex;align-items:center;justify-content:center;padding:14px;
+  font-size:12px;font-weight:600;color:var(--teal-hi);text-decoration:none;border-top:1px solid var(--border2);transition:background .2s}
+.ig-preview-cta:hover{background:rgba(13,127,127,.07)}
+
+/* PLANO TAG INFO */
+.plano-tag-info{font-size:11px;font-weight:600;color:var(--teal-hi);background:rgba(13,127,127,.09);
+  border:1px solid rgba(13,127,127,.18);border-radius:50px;padding:5px 12px;display:inline-block;margin-bottom:14px}
+
+/* SOBRE IMG override when instagram */
+.sobre-img-wrap .ig-preview-wrap + *{margin-top:0}
+
+
 .dores-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:end;margin-bottom:clamp(36px,5vw,60px)}
 .dores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,20px)}
 .dor-card{background:var(--ink3);border:1px solid var(--border2);border-radius:var(--r);
@@ -318,7 +340,7 @@ footer{background:var(--ink);border-top:1px solid var(--border);
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#" class="nav-brand">Lucas <em>Mello</em></a>
+  <a href="#" class="nav-brand">Lucas <em>Mello</em> <span style="font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(11px,1.1vw,13px);color:var(--muted);letter-spacing:.04em"> · Consultor Financeiro</span></a>
   <div class="nav-links">
     <a href="#sobre">Sobre</a>
     <a href="#voar">Metodologia</a>
@@ -348,14 +370,14 @@ footer{background:var(--ink);border-top:1px solid var(--border);
   <div class="hero-left">
     <div class="hero-eyebrow" data-fade>Economista · Consultor Financeiro</div>
     <h1 data-fade data-fd="1">
-      Organização primeiro.<br>
-      <em>Patrimônio depois.</em>
+      Você está disposto a<br>
+      <em>alcançar sua verdadeira riqueza?</em>
     </h1>
     <p class="hero-p" data-fade data-fd="2">
-      Sou <strong>Lucas Mello</strong>, economista. Trabalho com consultoria financeira para <strong>pessoas que querem sair do caos e construir algo sólido</strong> — com método, sem achismo e sem promessa fácil.
+      O dinheiro é um dos pilares do sucesso — e poucos sabem usá-lo com inteligência. Sou <strong>Lucas Mello</strong>, economista, e o meu trabalho é construir com você um caminho <strong>personalizado, estruturado e honesto</strong> em direção à sua liberdade financeira.
     </p>
     <div class="hero-actions" data-fade data-fd="3">
-      <a href="https://api.whatsapp.com/send/?phone=5522997774099&text=Ol%C3%A1%2C+vim+pelo+site+e+quero+organizar+minha+vida+financeira&type=phone_number&app_absent=0" class="btn-primary" target="_blank" rel="noopener">
+      <a href="https://api.whatsapp.com/send/?phone=5522997774099&text=Oi%2C+Lucas.+Vi+o+seu+site+e+quero+entender+como+funciona+sua+consultoria+financeira&type=phone_number&app_absent=0" class="btn-primary" target="_blank" rel="noopener">
         <svg class="wico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         Quero organizar minha vida financeira
       </a>
@@ -369,7 +391,7 @@ footer{background:var(--ink);border-top:1px solid var(--border);
         <div class="chip-v">Pessoa Física</div>
         <div class="chip-s">Organização &amp; Patrimônio</div>
       </div>
-      <img src="1000218314.jpg" alt="Lucas Mello — Consultor Financeiro e Economista">
+      <img src="1000218315.jpg" alt="Lucas Mello — Consultor Financeiro e Economista">
       <div class="photo-chip photo-chip-b">
         <div class="chip-l">Formação</div>
         <div class="chip-v">Economista</div>
@@ -395,7 +417,19 @@ footer{background:var(--ink);border-top:1px solid var(--border);
   <div class="s-in">
     <div class="sobre-grid">
       <div class="sobre-img-wrap" data-fade>
-        <img src="1000218314.jpg" alt="Lucas Mello">
+        <div class="ig-preview-wrap">
+          <div class="ig-preview-header">
+            <div class="ig-preview-dot"></div>
+            <span class="ig-preview-handle">@lucas.consultorfinanceiro</span>
+            <a href="https://instagram.com/lucas.consultorfinanceiro" target="_blank" rel="noopener" class="ig-preview-link">Seguir →</a>
+          </div>
+          <div class="ig-mosaic">
+            <div class="ig-cell ig-cell-main"><img src="1000218317.jpg" alt="Conteúdo Instagram Lucas Mello" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div class="ig-cell"><img src="1000218315.jpg" alt="Lucas Mello consultor" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+            <div class="ig-cell"><img src="1000218314.jpg" alt="Lucas Mello economista" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block"></div>
+          </div>
+          <a href="https://instagram.com/lucas.consultorfinanceiro" target="_blank" rel="noopener" class="ig-preview-cta">Ver perfil completo no Instagram →</a>
+        </div>
         <div class="sobre-tag"><strong>Lucas Mello</strong>Economista · Consultor Financeiro</div>
       </div>
       <div>
@@ -433,7 +467,7 @@ footer{background:var(--ink);border-top:1px solid var(--border);
         <h2 class="s-title" data-fade data-fd="1">Você ganha.<br>O dinheiro <em>some.</em></h2>
       </div>
       <p class="s-body" data-fade data-fd="2" style="padding-top:clamp(16px,3vw,36px)">
-        Não é falta de esforço. Não é falta de disciplina. É falta de estrutura. Você não precisa ganhar mais — precisa <strong style="color:var(--white)">enxergar com clareza o que já tem</strong>. Reconhece alguma dessas situações?
+        Não é falta de esforço. É falta de método. É falta de disciplina. Você não precisa ganhar mais — precisa <strong style="color:var(--white)">enxergar com clareza o que já tem</strong>. Reconhece alguma dessas situações?
       </p>
     </div>
     <div class="dores-grid">
@@ -507,33 +541,35 @@ footer{background:var(--ink);border-top:1px solid var(--border);
       <div class="plano" data-fade>
         <div class="plano-tier">Plano 01</div>
         <h3>Resolver</h3>
-        <p class="plano-for">Para quem está no caos financeiro e precisa, antes de tudo, ter clareza e controle sobre o dinheiro.</p>
+        <p class="plano-for">Uma consulta única, como ir ao médico ou ao psicólogo. Você traz seus problemas financeiros — e saímos com clareza e um plano de ação concreto.</p>
         <div class="plano-div"></div>
         <ul class="plano-features">
-          <li><span class="chk">→</span>Diagnóstico completo das finanças atuais</li>
-          <li><span class="chk">→</span>Mapeamento de receitas, despesas e dívidas</li>
-          <li><span class="chk">→</span>Estruturação do controle financeiro mensal</li>
-          <li><span class="chk">→</span>Plano de ação para estabilizar a situação</li>
-          <li><span class="chk">→</span>Clareza sobre cada real que entra e sai</li>
+          <li><span class="chk">→</span>Sessão individual e personalizada comigo</li>
+          <li><span class="chk">→</span>Diagnóstico direto da sua situação financeira</li>
+          <li><span class="chk">→</span>Identificação dos pontos críticos e prioridades</li>
+          <li><span class="chk">→</span>Plano de ação claro para sair do caos</li>
+          <li><span class="chk">→</span>Sem mensalidade — consulta única</li>
         </ul>
-        <a href="https://api.whatsapp.com/send/?phone=5522997774099&text=Ol%C3%A1%2C+vim+pelo+site+e+tenho+interesse+no+Plano+Resolver&type=phone_number&app_absent=0" class="plano-cta cta-ol" target="_blank" rel="noopener">Quero começar a resolver →</a>
-        <p class="plano-arrow">Primeiro passo para a estabilidade</p>
+        <div class="plano-tag-info">💬 Consulta única · Sem mensalidade</div>
+        <a href="https://api.whatsapp.com/send/?phone=5522997774099&text=Ol%C3%A1%2C+vim+pelo+site+e+tenho+interesse+no+Plano+Resolver&type=phone_number&app_absent=0" class="plano-cta cta-ol" target="_blank" rel="noopener">Quero marcar minha consulta →</a>
+        <p class="plano-arrow">Primeiro passo para a clareza financeira</p>
       </div>
 
       <div class="plano featured" data-fade data-fd="1">
         <div class="plano-badge pb-teal">✦ Mais escolhido</div>
         <div class="plano-tier" style="margin-top:14px">Plano 02</div>
         <h3>Evoluir</h3>
-        <p class="plano-for">Para quem já tem algum controle e quer crescer — usar o dinheiro com mais inteligência e intenção.</p>
+        <p class="plano-for">6 meses de acompanhamento comigo. Para quem quer parar de improvisar e começar a crescer com estrutura, metas e visão de futuro.</p>
         <div class="plano-div"></div>
         <ul class="plano-features">
-          <li><span class="chk">→</span>Tudo do Plano Resolver</li>
-          <li><span class="chk">→</span>Planejamento financeiro de médio prazo</li>
-          <li><span class="chk">→</span>Definição de metas com prazos reais</li>
-          <li><span class="chk">→</span>Estratégia de reserva de emergência</li>
-          <li><span class="chk">→</span>Orientação para primeiros investimentos</li>
-          <li><span class="chk">→</span>Acompanhamento e ajustes periódicos</li>
+          <li><span class="chk">→</span>6 meses de acompanhamento personalizado</li>
+          <li><span class="chk">→</span>6 meses de acesso ao Dashplan incluso</li>
+          <li><span class="chk">→</span>Planejamento financeiro estruturado</li>
+          <li><span class="chk">→</span>Metas reais com prazos definidos</li>
+          <li><span class="chk">→</span>Estratégia de reserva e primeiros investimentos</li>
+          <li><span class="chk">→</span>Revisões e ajustes mensais comigo</li>
         </ul>
+        <div class="plano-tag-info">📅 6 meses · Dashplan incluso</div>
         <a href="https://api.whatsapp.com/send/?phone=5522997774099&text=Ol%C3%A1%2C+vim+pelo+site+e+tenho+interesse+no+Plano+Evoluir&type=phone_number&app_absent=0" class="plano-cta cta-sl" target="_blank" rel="noopener">Começar meu planejamento →</a>
         <p class="plano-arrow" style="color:rgba(255,255,255,.35)">O caminho mais completo para crescer</p>
       </div>
@@ -542,16 +578,17 @@ footer{background:var(--ink);border-top:1px solid var(--border);
         <div class="plano-badge pb-gold">★ Máximo resultado</div>
         <div class="plano-tier" style="margin-top:14px">Plano 03</div>
         <h3>Voar</h3>
-        <p class="plano-for">Para quem quer acelerar — estrutura sólida, visão de longo prazo e construção ativa de patrimônio.</p>
+        <p class="plano-for">12 meses de acompanhamento comigo. Para quem quer acelerar a construção de patrimônio com estratégia de longo prazo e visão financeira sólida.</p>
         <div class="plano-div"></div>
         <ul class="plano-features">
-          <li><span class="chk">→</span>Tudo dos Planos Resolver e Evoluir</li>
+          <li><span class="chk">→</span>12 meses de acompanhamento personalizado</li>
+          <li><span class="chk">→</span>12 meses de acesso ao Dashplan incluso</li>
           <li><span class="chk">→</span>Estratégia de construção de patrimônio</li>
           <li><span class="chk">→</span>Planejamento financeiro de longo prazo</li>
-          <li><span class="chk">→</span>Acompanhamento contínuo via Dashplan</li>
-          <li><span class="chk">→</span>Revisões e ajustes estratégicos regulares</li>
           <li><span class="chk">→</span>Planilha personalizada com o seu perfil</li>
+          <li><span class="chk">→</span>Revisões estratégicas mensais comigo</li>
         </ul>
+        <div class="plano-tag-info">📅 12 meses · Dashplan incluso</div>
         <a href="https://api.whatsapp.com/send/?phone=5522997774099&text=Ol%C3%A1%2C+vim+pelo+site+e+tenho+interesse+no+Plano+Voar&type=phone_number&app_absent=0" class="plano-cta cta-ol" target="_blank" rel="noopener">Falar sobre o Plano Voar →</a>
         <p class="plano-arrow">Para quem quer chegar mais longe</p>
       </div>
